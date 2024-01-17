@@ -4,7 +4,10 @@
     imports = [ inputs.home-manager.nixosModules.default ];
 
     home-manager.users.duskyelf = { pkgs, ... }: {
-        imports = [ ./lunarvim/home.nix ];
+        imports = [
+            ./git.nix
+            ./lunarvim/home.nix
+        ];
 
 # This value determines the Home Manager release that your configuration is
 # compatible with. This helps avoid breakage when a new Home Manager release
