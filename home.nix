@@ -5,8 +5,9 @@
 
     home-manager.users.duskyelf = { pkgs, ... }: {
         imports = [
-            ./git.nix
-            ./lunarvim/home.nix
+            ./apps/git.nix
+            ./apps/bash.nix
+            ./apps/lunarvim/home.nix
         ];
 
 # This value determines the Home Manager release that your configuration is

@@ -11,7 +11,7 @@
 
             ./home.nix
             ./stylix.nix
-            ./qtile/system.nix
+            ./apps/qtile/system.nix
         ];
 
 # Bootloader.
