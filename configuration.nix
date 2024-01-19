@@ -11,8 +11,8 @@
 
             ./home.nix
             ./stylix.nix
+            ./apps/nixvim.nix
             ./apps/qtile/system.nix
-            ./apps/nixvim/system.nix
         ];
 
 # Bootloader.
@@ -90,9 +90,6 @@
         isNormalUser = true;
         description = "DuskyElf";
         extraGroups = [ "networkmanager" "wheel" ];
-        packages = with pkgs; [
-            firefox
-        ];
     };
 
 # Allow unfree packages
@@ -104,7 +101,6 @@
         vim
         wget
         git
-        kitty
     ];
 
 # Some programs need SUID wrappers, can be configured further or are
