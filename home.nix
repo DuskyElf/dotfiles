@@ -1,13 +1,17 @@
 { config, pkgs, inputs, ... }:
 
 {
-    imports = [ inputs.home-manager.nixosModules.default ];
+    imports = [
+        inputs.home-manager.nixosModules.default
+    ];
+    
 
     home-manager.users.duskyelf = { pkgs, ... }: {
         imports = [
             ./apps/git.nix
             ./apps/bash.nix
-            ./apps/lunarvim/home.nix
+            # ./apps/lunarvim/home.nix
+            # ./apps/nixvim/home.nix
         ];
 
 # This value determines the Home Manager release that your configuration is

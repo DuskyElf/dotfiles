@@ -4,7 +4,7 @@
     programs.bash = {
         enable = true;
         shellAliases = {
-            vim = "lvim";
+            vim = "nvim";
         };
     };
 }

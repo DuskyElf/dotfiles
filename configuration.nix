@@ -7,11 +7,12 @@
 {
     imports =
         [ # Include the results of the hardware scan.
-        ./hardware-configuration.nix
+            ./hardware-configuration.nix
 
             ./home.nix
             ./stylix.nix
             ./apps/qtile/system.nix
+            ./apps/nixvim/system.nix
         ];
 
 # Bootloader.
@@ -26,7 +27,9 @@
 # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
 # Enable networking
-        networking.networkmanager.enable = true;
+    networking.networkmanager.enable = true;
+    # dns
+    networking.nameservers = [ "1.1.1.1" ];
 
 # Set your time zone.
     time.timeZone = "Asia/Kolkata";
