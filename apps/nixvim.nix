@@ -63,7 +63,29 @@
       };
 
       nvim-autopairs.enable = true;
-      nvim-cmp.enable = true;
+
+      nvim-cmp = {
+        enable = true;
+        completion.autocomplete = [ "TextChanged" ];
+
+        snippet.expand = {
+          __raw = ''
+            function(args)
+              require('luasnip').lsp_expand(args.body)
+            end
+          '';
+        };
+
+        sources = [
+          { name = "nvim_lsp"; }
+          { name = "luasnip"; }
+          { name = "path"; }
+          { name = "buffer"; }
+        ];
+      };
+
+      luasnip.enable = true;
+      cmp-nvim-lsp.enable = true;
 
       lualine = {
         enable = true;
