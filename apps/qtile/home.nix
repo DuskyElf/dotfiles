@@ -1,5 +1,5 @@
-{ config, pkgs, ... } :
+{ config, pkgs, ... }:
 
 {
-    home.file.".config/qtile/config.py".source = ./config.py;
+  home.file.".config/qtile/config.py".source = ./config.py;
 }

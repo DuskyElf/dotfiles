@@ -1,5 +1,5 @@
-{ config, pkgs, ... } :
+{ config, pkgs, ... }:
 
 {
-    services.xserver.windowManager.qtile.enable = true;
+  services.xserver.windowManager.qtile.enable = true;
 }

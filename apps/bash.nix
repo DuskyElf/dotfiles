@@ -1,10 +1,8 @@
-{ config, pkgs, ... } :
+{ config, pkgs, ... }:
 
 {
-    programs.bash = {
-        enable = true;
-        shellAliases = {
-            vim = "nvim";
-        };
-    };
+  programs.bash = {
+    enable = true;
+    shellAliases = { vim = "nvim"; };
+  };
 }

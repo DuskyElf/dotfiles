@@ -63,6 +63,7 @@
       };
 
       nvim-autopairs.enable = true;
+      nvim-cmp.enable = true;
 
       lualine = {
         enable = true;
