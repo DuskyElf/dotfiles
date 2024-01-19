@@ -1,96 +1,138 @@
-{ config, pkgs, inputs, ... } :
+{ config, pkgs, inputs, ... }:
 
 {
-    imports = [ inputs.nixvim.nixosModules.nixvim ];
+  imports = [ inputs.nixvim.nixosModules.nixvim ];
 
-    # dependencies
-    environment.systemPackages = with pkgs; [
-        ripgrep
+  # dependencies
+  environment.systemPackages = with pkgs; [ ripgrep ];
+
+  stylix.fonts.monospace = {
+    name = "Jet Brains Mono Nerd";
+    package = pkgs.udev-gothic-nf;
+  };
+
+  programs.nixvim = {
+    enable = true;
+
+    clipboard.providers.wl-copy.enable = true;
+
+    globals = { mapleader = " "; };
+
+    options = {
+      number = true;
+      relativenumber = true;
+      shiftwidth = 4;
+      tabstop = 4;
+      expandtab = true;
+      wrap = true;
+    };
+
+    keymaps = [
+      {
+        key = "<leader>e";
+        action = ":Neotree toggle<CR>";
+        options.desc = "Explorer";
+      }
+      {
+        key = "<leader>h";
+        action = ":nohl<CR>";
+        options.desc = "No highlight";
+      }
+      {
+        key = "kj";
+        mode = [ "i" ];
+        action = "<esc>";
+        options.desc = "Normal Mode";
+      }
     ];
 
-    stylix.fonts.monospace = {
-        name = "Jet Brains Mono Nerd";
-        package = pkgs.udev-gothic-nf;
-    };
+    plugins = {
+      which-key = {
+        enable = true;
+        registrations = {
+          "<leader>f" = "+fuzzy find";
 
-    programs.nixvim = {
+          "<leader>l" = "+lsp";
+          "<leader>lj" = "Next diagnostic";
+          "<leader>lk" = "Prev diagnostic";
+          "<leader>lr" = "Rename symbol";
+          "<leader>ld" = "Goto definition";
+          "<leader>la" = "Code Action";
+          "<leader>lf" = "Format";
+        };
+      };
+
+      nvim-autopairs.enable = true;
+
+      lualine = {
+        enable = true;
+        theme = "dracula";
+      };
+
+      lsp = {
         enable = true;
 
-	    clipboard.providers.wl-copy.enable = true;
+        servers = { nil_ls.enable = true; };
 
-        globals = {
-            mapleader = " ";
+        keymaps = {
+          diagnostic = {
+            "<leader>lj" = "goto_next";
+            "<leader>lk" = "goto_prev";
+          };
+
+          lspBuf = {
+            K = "hover";
+            "<leader>lr" = "rename";
+            "<leader>ld" = "definition";
+            "<leader>la" = "code_action";
+            "<leader>lf" = "format";
+          };
         };
+      };
 
-	    options = {
-	        relativenumber = true;
-	        shiftwidth = 4;
-	        tabstop = 4;
-	        expandtab = true;
-	        wrap = true;
-	    };
+      none-ls = {
+        enable = true;
 
-        keymaps = [
-            {
-                key = "<leader>e";
-                action = ":Neotree toggle<CR>";
-                options.desc = "Neotree Toggle";
-            }
-            {
-                key = "kj";
-                mode = ["i"];
-                action = "<esc>";
-                options.desc = "Normal Mode";
-            }
-        ];
-
-        plugins = {
-            which-key.enable = true;
-
-            lualine = {
-                enable = true;
-                theme = "base16";
-            };
-
-            lsp = {
-                enable = true;
-
-                servers = {
-                    nil_ls.enable = true;
-                };
-            };
-
-            telescope = {
-                enable = true;
-
-                keymaps = {
-                    "<leader>ff" = {
-                        action = "git_files";
-                        desc = "Telescope Git Files";
-                    };
-                    "<leader>fg" = {
-                        action = "live_grep";
-                        desc = "Telescope Live Greap";
-                    };
-                };
-            };
-
-            treesitter = {
-                enable = true;
-
-                indent = true;
-                nixvimInjections = true;
-            };
-
-            neo-tree = {
-                enable = true;
-                autoCleanAfterSessionRestore = true;
-            };
+        sources.formatting = {
+          stylua.enable = true;
+          nixfmt.enable = true;
         };
-    };
+      };
 
-    stylix.targets.nixvim.transparent_bg = {
-        main = true;
-        sign_column = true;
+      telescope = {
+        enable = true;
+
+        keymaps = {
+          "<leader>ff" = {
+            action = "git_files";
+            desc = "Fuzzy find files";
+          };
+          "<leader>fg" = {
+            action = "live_grep";
+            desc = "Live grep";
+          };
+          "<leader>d" = {
+            action = "lsp_workspace_symbols";
+            desc = "Goto workspace symbol";
+          };
+          "<leader>g" = {
+            action = "lsp_document_symbols";
+            desc = "Goto document symbol";
+          };
+        };
+      };
+
+      treesitter = {
+        enable = true;
+
+        indent = true;
+        nixvimInjections = true;
+      };
+
+      neo-tree = {
+        enable = true;
+        autoCleanAfterSessionRestore = true;
+      };
     };
+  };
 }
