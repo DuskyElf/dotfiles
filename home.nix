@@ -1,8 +1,15 @@
 { config, pkgs, nixvim, ... }:
 
-
 {
-  imports = [ nixvim.homeManagerModules.nixvim ./apps/nixvim.nix ./apps/git.nix ./apps/bash.nix ];
+  imports = [
+    ./apps/qtile/home.nix
+
+    nixvim.homeManagerModules.nixvim
+    ./apps/nixvim.nix
+
+    ./apps/git.nix
+    ./apps/bash.nix
+  ];
 
   home.username = "duskyelf";
   home.homeDirectory = "/home/duskyelf";
