@@ -14,7 +14,7 @@
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { nixpkgs, stylix, home-manager, nixvim, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -23,10 +23,19 @@
       nixosConfigurations = {
         asus-cool = lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
-          modules = [ ./configuration.nix ];
+          modules =
+            [ ./configuration.nix stylix.nixosModules.stylix ./stylix.nix ];
         };
       };
+
+      homeConfigurations.duskyelf =
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { nixvim = nixvim; };
+
+          modules =
+            [ ./home.nix stylix.homeManagerModules.stylix ./stylix.nix ];
+        };
 
       # Developer enviorment for configuring qtile
       devShells.x86_64-linux.default = pkgs.mkShell {

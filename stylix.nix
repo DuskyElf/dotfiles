@@ -1,10 +1,6 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
-  imports = [ inputs.stylix.nixosModules.stylix ];
-
-  services.xserver.desktopManager.gnome.enable = false;
-
   stylix = {
     image = pkgs.fetchurl {
       url =

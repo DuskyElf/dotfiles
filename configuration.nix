@@ -2,17 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-
-    ./home.nix
-    ./stylix.nix
-    ./apps/nixvim.nix
     ./apps/qtile/system.nix
   ];
+
+  # needed for stylix
+  services.xserver.desktopManager.gnome.enable = false;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

@@ -1,10 +1,8 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
-  imports = [ inputs.nixvim.nixosModules.nixvim ];
-
   # dependencies
-  environment.systemPackages = with pkgs; [ ripgrep ];
+  home.packages = with pkgs; [ ripgrep ];
 
   stylix.fonts.monospace = {
     name = "Jet Brains Mono Nerd";
@@ -111,7 +109,10 @@
       lsp = {
         enable = true;
 
-        servers = { nil_ls.enable = true; };
+        servers = {
+          nil_ls.enable = true;
+          pyright.enable = true;
+        };
 
         keymaps = {
           diagnostic = {

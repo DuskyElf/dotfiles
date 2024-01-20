@@ -1,13 +1,14 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, nixvim, ... }:
+
 
 {
-  imports = [ inputs.home-manager.nixosModules.default ];
+  imports = [ nixvim.homeManagerModules.nixvim ./apps/nixvim.nix ./apps/git.nix ./apps/bash.nix ];
 
-  home-manager.users.duskyelf = { pkgs, ... }: {
-    imports = [ ./apps/git.nix ./apps/bash.nix ];
+  home.username = "duskyelf";
+  home.homeDirectory = "/home/duskyelf";
 
-    home.stateVersion = "23.11"; # Don't change
+  home.packages = with pkgs; [ firefox alacritty ];
 
-    home.packages = with pkgs; [ firefox kitty ];
-  };
+  home.stateVersion = "23.11"; # Don't change
+  programs.home-manager.enable = true;
 }
