@@ -411,7 +411,8 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "working-qtile-extras-package": "working-qtile-extras-package"
       }
     },
     "stylix": {
@@ -458,6 +459,21 @@
         "owner": "nix-systems",
         "repo": "default",
         "type": "github"
+      }
+    },
+    "working-qtile-extras-package": {
+      "locked": {
+        "lastModified": 1697934676,
+        "narHash": "sha256-DZ1gRmnIFbMtVRAbxxBlalVW+uA4jjCqcD8hyIPWT0s=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9e1ae78a702a764d6815dac293f460f14720d140",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "rev": "9e1ae78a702a764d6815dac293f460f14720d140",
+        "type": "indirect"
       }
     }
   },
