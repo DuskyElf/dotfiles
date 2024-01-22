@@ -98,8 +98,8 @@ layouts = [
         border_focus_stack = stylix.base0A,
         border_normal = stylix.base03,
         border_normal_stack = stylix.base03,
-        border_width = 4,
-        margin = 20
+        border_width = 2,
+        margin = 10
     )
 
     # layout.Max(),
@@ -118,7 +118,7 @@ layouts = [
 
 widget_defaults = dict(
     font=stylix.font,
-    fontsize=32,
+    fontsize=stylix.fontsize,
     padding=10,
 )
 extension_defaults = widget_defaults.copy()
@@ -153,9 +153,9 @@ screens = [
         # By default we handle these events delayed to already improve performance, however your system might still be struggling
         # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
         # x11_drag_polling_rate = 60,
-        left=bar.Gap(20),
-        right=bar.Gap(20),
-        bottom=bar.Gap(20),
+        left=bar.Gap(7),
+        right=bar.Gap(7),
+        bottom=bar.Gap(7),
         wallpaper=stylix.image,
         wallpaper_mode="fill"
     ),
