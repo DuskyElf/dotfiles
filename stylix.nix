@@ -4,8 +4,8 @@
   stylix = {
     image = pkgs.fetchurl {
       url =
-        "https://www.pixelstalk.net/wp-content/uploads/2016/05/Epic-Anime-Awesome-Wallpapers.jpg";
-      sha256 = "enQo3wqhgf0FEPHj2coOCvo7DuZv+x5rL/WIo4qPI50=";
+        "https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/main/landscapes/Cloudsnight.jpg";
+      sha256 = "jBv9iKBVQbgd1cmv+ubiJQH7qydRJZTShmwzEiJJcDA=";
     };
 
     base16Scheme =

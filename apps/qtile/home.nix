@@ -20,5 +20,6 @@
     base0E = "${config.lib.stylix.colors.base0E}"
     base0F = "${config.lib.stylix.colors.base0F}"
     font   = "${config.stylix.fonts.monospace.name}"
+    image  = "${config.stylix.image}"
 '';
 }

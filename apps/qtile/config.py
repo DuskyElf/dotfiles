@@ -147,7 +147,9 @@ screens = [
         # x11_drag_polling_rate = 60,
         left=bar.Gap(20),
         right=bar.Gap(20),
-        bottom=bar.Gap(20)
+        bottom=bar.Gap(20),
+        wallpaper=stylix.image,
+        wallpaper_mode="fill"
     ),
 ]
 
