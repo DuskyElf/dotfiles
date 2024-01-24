@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./direnv.nix ];
+  imports = [ ./direnv/home.nix ];
 
   programs.bash = {
     enable = true;
