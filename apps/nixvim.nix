@@ -76,9 +76,10 @@
 
         sources = [
           { name = "nvim_lsp"; }
+          { name = "cmp-nvim-lsp"; }
           { name = "luasnip"; }
-          { name = "path"; }
           { name = "buffer"; }
+          { name = "path"; }
         ];
 
         mapping = {
@@ -86,7 +87,7 @@
           "<C-d>" = "cmp.mapping.scroll_docs(-4)";
           "<C-e>" = "cmp.mapping.close()";
           "<C-f>" = "cmp.mapping.scroll_docs(4)";
-          "<CR>" = "cmp.mapping.confirm({ select = true })";
+          # "<CR>" = "cmp.mapping.confirm({ select = true })";
           "<S-Tab>" = {
             action = "cmp.mapping.select_prev_item()";
             modes = [ "i" "s" ];
@@ -172,6 +173,13 @@
       neo-tree = {
         enable = true;
         autoCleanAfterSessionRestore = true;
+      };
+
+      codeium-vim = {
+        enable = true;
+        keymaps = {
+          accept = "<C-CR>";
+        };
       };
     };
   };
