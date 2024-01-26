@@ -10,6 +10,12 @@
     ./apps/qtile/system.nix
   ];
 
+  # Allow broken
+  # nixpkgs.config.allowBroken = true;
+
+  # Allow unfree
+  nixpkgs.config.allowUnfree = true;
+
   # needed for stylix
   services.xserver.desktopManager.gnome.enable = false;
 
@@ -89,9 +95,6 @@
     description = "DuskyElf";
     extraGroups = [ "networkmanager" "wheel" ];
   };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

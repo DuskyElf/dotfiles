@@ -2,12 +2,13 @@
   description = "DuskyElf's NixOs Config";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-    # nixpkgs-stable.url = "nixpkgs/nixos-23.11";
 
-    # TODO: Update after https://github.com/NixOS/nixpkgs/pull/282869 gets merged
-    working-qtile-extras-package.url =
-      "nixpkgs/9e1ae78a702a764d6815dac293f460f14720d140";
+    # TODO: use pkgs (unstable) instead of pkgs-master after qtile updates to nixpkgs-unstable
+    # https://nixpk.gs/pr-tracker.html?pr=282869
+    nixpkgs.url = "nixpkgs/master";
+    # nixpkgs.url = "nixpkgs/nixos-unstable";
+
+    # nixpkgs-stable.url = "nixpkgs/nixos-23.11";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -19,18 +20,15 @@
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, stylix, home-manager, nixvim, ... }@inputs:
+  outputs = { nixpkgs, stylix, home-manager, nixvim, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      qtile-extras =
-        inputs.working-qtile-extras-package.legacyPackages.${system}.python311Packages.qtile-extras;
     in {
       nixosConfigurations = {
         asus-cool = lib.nixosSystem {
           inherit system;
-          extraArgs = { inherit qtile-extras; };
           modules =
             [ ./configuration.nix stylix.nixosModules.stylix ./stylix.nix ];
         };
@@ -46,7 +44,7 @@
       # Developer enviorment for configuring qtile
       devShells.x86_64-linux.default = pkgs.mkShell {
         nativeBuildInputs = with pkgs;
-          [ (python3.withPackages (ps: with ps; [ qtile ])) ];
+          [ (python3.withPackages (ps: with ps; [ qtile qtile-extras ])) ];
       };
     };
 
