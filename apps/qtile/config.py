@@ -115,12 +115,14 @@ screens = [
                     inactive=stylix.base03,
                     fontsize=72,
                 ),
+
                 widget.Image(
                     filename="~/.config/qtile/nixos.png",
                     mouse_callbacks={
                         "Button1": lazy.spawn([terminal, "--hold", "-e", "neofetch"]),
                     },
                 ),
+
                 widget.GroupBox(
                     active=stylix.base0D,
                     inactive=stylix.base03,
@@ -131,7 +133,50 @@ screens = [
                     other_screen_border=stylix.base03,
                     other_current_screen_border=stylix.base03,
                 **decoration_group),
+
                 widget.Spacer(),
+
+                widget.WiFiIcon(
+                    foreground=stylix.base0F,
+                    inactive_color=stylix.base03,
+                    update_interval=2,
+                    interface = "wlo1",
+                    check_connection_interval=5,
+                **decoration_group),
+
+                widget.Spacer(length=int(stylix.fontsize)),
+
+                widget.PulseVolume(
+                    foreground=stylix.base0E,
+                    emoji=True,
+                    mode="icon",
+                **decoration_group),
+
+                widget.Spacer(length=int(stylix.fontsize)),
+
+                widget.Backlight(
+                    foreground=stylix.base0D,
+                    backlight_name="intel_backlight",
+                    change_command="brightnessctl set {}",
+                    format="\uf522  {percent:2.0%}",
+                    update_interval = 0.5,
+                **decoration_group),
+
+                widget.Spacer(length=int(stylix.fontsize)),
+
+                widget.Battery(
+                    format="{char}   {percent:2.0%}",
+                    foreground=stylix.base0B,
+                    charge_char = "\uf0e7",
+                    discharge_char = "\uf242",
+                    empty_char = "\uf244",
+                    full_char = "\uf240",
+                    not_charging_char = "\uf240",
+                    update_interval = 5,
+                **decoration_group),
+
+                widget.Spacer(length=int(stylix.fontsize)),
+
                 widget.CPU(
                     format="\uf4bc   {freq_current}GHz {load_percent}%",
                     foreground=stylix.base0A,
@@ -139,10 +184,25 @@ screens = [
                         "Button1": lazy.spawn([terminal, "-e", "htop"]),
                     },
                 **decoration_group),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
+
+                widget.Spacer(length=int(stylix.fontsize)),
+
+                widget.Clock(
+                    format="%H:%M",
+                    foreground=stylix.base0C,
+                **decoration_group),
+
+                widget.Spacer(length=int(stylix.fontsize)),
+
+                widget.QuickExit(
+                    foreground=stylix.base08,
+                    default_text="\uf00d",
+                    countdown_format="{}",
+                **decoration_group),
+
+                widget.Spacer(length=int(stylix.fontsize)),
             ],
-            24,
+            int(stylix.fontsize * 4),
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),

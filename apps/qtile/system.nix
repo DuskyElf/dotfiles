@@ -5,7 +5,8 @@
     neofetch
     htop-vim
     wlr-randr
-    (python3.withPackages (ps: with ps; [ qtile qtile-extras ]))
+    brightnessctl
+    (python3.withPackages (ps: with ps; [ qtile qtile-extras pulsectl-asyncio ]))
   ];
 
   services.xserver.windowManager.qtile = {
