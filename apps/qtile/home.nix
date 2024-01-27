@@ -12,11 +12,6 @@
     executable = true;
   };
 
-  home.file."${config.home.homeDirectory}/.config/qtile/Papirus" = {
-    source = ./Papirus;
-    recursive = true;
-  };
-
   home.file."${config.home.homeDirectory}/.config/qtile/stylix.py".text = ''
     base00   = "${config.lib.stylix.colors.base00}"
     base01   = "${config.lib.stylix.colors.base01}"
