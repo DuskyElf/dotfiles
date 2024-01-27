@@ -41,10 +41,15 @@
         modules = [ ./home.nix stylix.homeManagerModules.stylix ./stylix.nix ];
       };
 
-      # Developer enviorment for configuring qtile
       devShells.x86_64-linux.default = pkgs.mkShell {
-        nativeBuildInputs = with pkgs;
-          [ (python3.withPackages (ps: with ps; [ qtile qtile-extras ])) ];
+        # # Developer enviorment for configuring qtile
+        # nativeBuildInputs = with pkgs;
+        #   [ (python3.withPackages (ps: with ps; [ qtile qtile-extras ])) ];
+
+        shellHook = ''
+          echo "This is DuskyElf's Dotfiles"
+          export NIXPKGS_ALLOW_UNFREE=1
+        '';
       };
     };
 
