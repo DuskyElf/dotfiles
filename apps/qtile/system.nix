@@ -2,6 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
+    neofetch
+    htop-vim
     wlr-randr
     (python3.withPackages (ps: with ps; [ qtile qtile-extras ]))
   ];

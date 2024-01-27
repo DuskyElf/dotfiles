@@ -4,12 +4,21 @@
   home.file."${config.home.homeDirectory}/.config/qtile/config.py".source =
     ./config.py;
 
+  home.file."${config.home.homeDirectory}/.config/qtile/nixos.png".source =
+    ./nixos.png;
+
   home.file."${config.home.homeDirectory}/.config/qtile/autostart.sh" = {
     source = ./autostart.sh;
     executable = true;
   };
 
+  home.file."${config.home.homeDirectory}/.config/qtile/Papirus" = {
+    source = ./Papirus;
+    recursive = true;
+  };
+
   home.file."${config.home.homeDirectory}/.config/qtile/stylix.py".text = ''
+    base00   = "${config.lib.stylix.colors.base00}"
     base01   = "${config.lib.stylix.colors.base01}"
     base02   = "${config.lib.stylix.colors.base02}"
     base03   = "${config.lib.stylix.colors.base03}"

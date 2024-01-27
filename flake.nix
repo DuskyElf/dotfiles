@@ -42,9 +42,9 @@
       };
 
       devShells.x86_64-linux.default = pkgs.mkShell {
-        # # Developer enviorment for configuring qtile
-        # nativeBuildInputs = with pkgs;
-        #   [ (python3.withPackages (ps: with ps; [ qtile qtile-extras ])) ];
+        # Developer enviorment for configuring qtile
+        nativeBuildInputs = with pkgs;
+          [ (python3.withPackages (ps: with ps; [ qtile qtile-extras ])) ];
 
         shellHook = ''
           echo "This is DuskyElf's Dotfiles"

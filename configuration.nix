@@ -30,6 +30,21 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  # Battery Saving -
+  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.settings = {
+    battery = {
+      governor = "powersave";
+      turbo = "never";
+    };
+    charger = {
+      governor = "powersave";
+      turbo = "auto";
+    };
+  };
+
+  services.thermald.enable = true;
+
   # Enable networking
   networking.networkmanager.enable = true;
   # dns
