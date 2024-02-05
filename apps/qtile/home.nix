@@ -12,6 +12,11 @@
     executable = true;
   };
 
+  # Wayland for electron apps
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
+
   home.file."${config.home.homeDirectory}/.config/qtile/stylix.py".text = ''
     base00   = "${config.lib.stylix.colors.base00}"
     base01   = "${config.lib.stylix.colors.base01}"

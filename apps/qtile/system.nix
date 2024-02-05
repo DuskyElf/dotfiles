@@ -2,6 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    slurp grim wl-clipboard
     neofetch
     htop-vim
     wlr-randr

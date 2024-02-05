@@ -42,6 +42,7 @@ keys = [
     Key([mod], "m", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
     Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod], "o", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([mod], "s", lazy.spawn("slurp | grim -g - - | wl-copy", shell=True), desc="Take a screenshot into the clipboard"),
 
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
 
