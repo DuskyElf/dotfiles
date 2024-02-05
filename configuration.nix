@@ -43,6 +43,15 @@
     };
   };
 
+  # Custom settings
+  # for better battery life keep it at 59%
+  systemd.services.battery-threshold-control = {
+    script = ''
+      echo "59" > /sys/class/power_supply/BAT0/charge_control_end_threshold
+    '';
+    wantedBy = [ "multi-user.target" ];
+  };
+
   services.thermald.enable = true;
 
   # Enable networking
