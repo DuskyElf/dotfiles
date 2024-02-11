@@ -158,9 +158,13 @@ screens = [
                 widget.Backlight(
                     foreground=stylix.base0D,
                     backlight_name="intel_backlight",
-                    change_command="brightnessctl set {}",
+                    change_command="",
                     format="\uf522  {percent:2.0%}",
                     update_interval = 0.5,
+                    mouse_callbacks={
+                        "Button4": lazy.spawn(["brightnessctl", "set", "1%+"]),
+                        "Button5": lazy.spawn(["brightnessctl", "set", "1%-"]),
+                    },
                 **decoration_group),
 
                 widget.Spacer(length=int(stylix.fontsize)),
