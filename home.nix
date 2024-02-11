@@ -14,7 +14,7 @@
   home.username = "duskyelf";
   home.homeDirectory = "/home/duskyelf";
 
-  home.packages = with pkgs; [ firefox alacritty ];
+  home.packages = with pkgs; [ firefox alacritty ollama ];
 
   home.stateVersion = "23.11"; # Don't change
   programs.home-manager.enable = true;

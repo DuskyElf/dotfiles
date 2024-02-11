@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
-{
-  # dependencies
+{ # dependencies
   home.packages = with pkgs; [ ripgrep ];
 
   stylix.fonts.monospace = {
@@ -177,9 +176,7 @@
 
       codeium-vim = {
         enable = true;
-        keymaps = {
-          accept = "<C-CR>";
-        };
+        keymaps = { accept = "<C-CR>"; };
       };
     };
   };
