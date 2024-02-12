@@ -14,7 +14,7 @@
   home.username = "duskyelf";
   home.homeDirectory = "/home/duskyelf";
 
-  home.packages = with pkgs; [ firefox alacritty ollama ];
+  home.packages = with pkgs; [ firefox alacritty ollama gnome.nautilus ];
 
   home.stateVersion = "23.11"; # Don't change
   programs.home-manager.enable = true;
