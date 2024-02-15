@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ ../lf.nix ];
+
   home.file."${config.home.homeDirectory}/.config/qtile/config.py".source =
     ./config.py;
 
@@ -13,9 +15,7 @@
   };
 
   # Wayland for electron apps
-  home.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-  };
+  home.sessionVariables = { NIXOS_OZONE_WL = "1"; };
 
   home.file."${config.home.homeDirectory}/.config/qtile/stylix.py".text = ''
     base00   = "${config.lib.stylix.colors.base00}"

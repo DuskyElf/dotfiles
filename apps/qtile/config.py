@@ -38,7 +38,8 @@ keys = [
     ], mode=True, name="Resize", desc="Window resizing mode"),
 
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod], "return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "return", lazy.spawn([terminal, "-e", "lf"]), desc="Launch lf"),
+    Key([mod], "t", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "m", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
     Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod], "o", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),

@@ -14,7 +14,11 @@
   home.username = "duskyelf";
   home.homeDirectory = "/home/duskyelf";
 
-  home.packages = with pkgs; [ firefox alacritty ollama gnome.nautilus ];
+  home.packages = with pkgs; [ firefox alacritty ollama ];
+
+  home.sessionVariables = {
+      MOZ_ENABLE_WAYLAND = 1;
+  };
 
   home.stateVersion = "23.11"; # Don't change
   programs.home-manager.enable = true;
