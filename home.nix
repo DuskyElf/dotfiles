@@ -9,16 +9,19 @@
 
     ./apps/git.nix
     ./apps/bash.nix
+    ./apps/alacritty.nix
   ];
 
   home.username = "duskyelf";
   home.homeDirectory = "/home/duskyelf";
 
-  home.packages = with pkgs; [ firefox alacritty ollama ];
+  home.packages = with pkgs; [ firefox alacritty ollama beeper ];
 
   home.sessionVariables = {
       MOZ_ENABLE_WAYLAND = 1;
   };
+
+  stylix.targets.alacritty.enable = false;
 
   home.stateVersion = "23.11"; # Don't change
   programs.home-manager.enable = true;
