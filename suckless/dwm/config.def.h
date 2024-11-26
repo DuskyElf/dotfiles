@@ -95,7 +95,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ControlMask,           XK_r,      quit,           {0} },
+	{ MODKEY|ControlMask,           XK_q,      spawn,          SHCMD("pkill dwm") },
 
 	// More hotkeys
 	{ 0, XF86XK_MonBrightnessUp,    spawn, SHCMD("brightnessctl set 2%+")},
