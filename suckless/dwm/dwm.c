@@ -1894,8 +1894,10 @@ updategeom(void)
 		/* new monitors if nn > n */
 		for (i = n; i < nn; i++) {
 			for (m = mons; m && m->next; m = m->next);
-			if (m)
+			if (m) {
 				m->next = createmon();
+				m->next->showbar = 0;
+			}
 			else
 				mons = createmon();
 		}
