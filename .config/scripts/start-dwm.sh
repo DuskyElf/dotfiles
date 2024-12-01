@@ -9,5 +9,9 @@ while true; do
   xrdb -merge -I$HOME ~/.Xresources
   xrandr --output "DP-2" --below "eDP-1"
 
+  dwmblocks &
   dwm 2> ~/.dwm.log
+
+  # Cleanup
+  pkill dwmblocks
 done
