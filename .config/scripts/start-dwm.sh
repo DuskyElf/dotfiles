@@ -9,6 +9,8 @@ while true; do
   xrdb -merge -I$HOME ~/.Xresources
   xrandr --output "DP-2" --below "eDP-1"
 
+  setxkbmap -option caps:escape
+
   dwmblocks &
   dwm 2> ~/.dwm.log
 
