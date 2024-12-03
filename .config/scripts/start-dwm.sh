@@ -12,6 +12,7 @@ while true; do
   setxkbmap -option caps:escape
 
   dwmblocks &
+  nixGL picom &
   dwm 2> ~/.dwm.log
 
   # Cleanup
