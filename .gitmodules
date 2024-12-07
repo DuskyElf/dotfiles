@@ -1,0 +1,3 @@
+[submodule "suckless/dwm-flexipatch"]
+	path = suckless/dwm-flexipatch
+	url = https://github.com/DuskyElf/dwm-flexipatch.git
