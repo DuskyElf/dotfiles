@@ -13,8 +13,9 @@ while true; do
 
   dwmblocks &
   nixGL picom &
-  dwm 2> ~/.dwm.log
+  dwm
 
   # Cleanup
   pkill dwmblocks
+  pkill picom
 done
