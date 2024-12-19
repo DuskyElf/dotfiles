@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-set -euo pipefail
+#set -euo pipefail
+set -u
 
 while true; do
-  feh --bg-scale --no-fehbg --randomize ~/Pictures/wallpapers/ --xinerama-index 0
+  wal -i ~/Pictures/wallpapers/ -s -t
   sleep 120
 done
