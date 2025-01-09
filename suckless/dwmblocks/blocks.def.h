@@ -7,8 +7,8 @@ static const Block blocks[] = {
 	{"", "date '+%I:%M%p'", 10, 0},
 
 	// Right
-	{";", "~/.config/scripts/status/battery.sh", 5, 0},
-	{";", "~/.config/scripts/status/battery.sh", 5, 0},
+	{"|", "~/.config/scripts/status/battery.sh", 5, 0},
+	{"|", "~/.config/scripts/status/volume.sh", 0, 1},
 };
 
 //sets delimiter between status commands. NULL character ('\0') means no delimiter.

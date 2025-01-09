@@ -13,12 +13,15 @@ case $1 in
 
 	volume-mute)
 	  pactl set-sink-mute @DEFAULT_SINK@ toggle
+	  kill -n "$VOLUME_SIG" $(pidof dwmblocks)
 	;;
 	volume-down)
 	  pactl set-sink-volume @DEFAULT_SINK@ -5%
+	  kill -n "$VOLUME_SIG" $(pidof dwmblocks)
 	;;
 	volume-up)
 	  pactl set-sink-volume @DEFAULT_SINK@ +5%
+	  kill -n "$VOLUME_SIG" $(pidof dwmblocks)
 	;;
 
 	screenshot)
