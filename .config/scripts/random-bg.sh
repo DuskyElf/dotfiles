@@ -4,5 +4,6 @@ set -u
 
 while true; do
   wal -i ~/Pictures/wallpapers/ -s -t
+  xsetroot -name "fsignal:xrdb"
   sleep 120
 done
