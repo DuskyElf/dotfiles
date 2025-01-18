@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+temp_avg="$(sensors | grep 'Package id 0' | awk '{print $4}' | cut -b2-)"
 load_avg="$(cut -d' ' -f1 /proc/loadavg)"
 freq_avg="$(cat /proc/cpuinfo | grep 'cpu MHz' | awk '{ total += $4; count++ } END { print total/count }')"
 freq_avg="$(printf %0.f $freq_avg)"
@@ -13,4 +14,4 @@ else
   printf "󰾆"
 fi
 
-printf " %s@%sMHz" $load_avg $freq_avg
+printf " %s %s@%sMHz" $temp_avg $load_avg $freq_avg
