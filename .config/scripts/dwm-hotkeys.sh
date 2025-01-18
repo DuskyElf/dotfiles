@@ -2,13 +2,16 @@
 set -euo pipefail
 
 VOLUME_SIG=35
+BRIGHTNESS_SIG=36
 
 case $1 in
 	brightness-up)
 	  brightnessctl set 1%+
+	  kill -n "$BRIGHTNESS_SIG" $(pidof dwmblocks)
 	;;
 	brightness-down)
 	  brightnessctl set 1%-
+	  kill -n "$BRIGHTNESS_SIG" $(pidof dwmblocks)
 	;;
 
 	volume-mute)
