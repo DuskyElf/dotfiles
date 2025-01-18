@@ -1,15 +1,16 @@
 //Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
-	//{"Mem:", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",	30,		0},
 
 	// Right
 	{"", "~/.config/scripts/status/battery.sh", 5, 0},
+	{"|", "~/.config/scripts/status/cpu.sh", 2, 0},
+	{"|", "~/.config/scripts/status/memory.sh", 3, 0},
 	{"|", "~/.config/scripts/status/brightness.sh", 0, 2},
 	{"|", "~/.config/scripts/status/volume.sh", 0, 1},
 
 	// Center
-	{";", "date '+%I:%M%p'", 10, 0},
+	{";", "date '+%I:%M%p'", 15, 0},
 
 };
 
