@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+printf "^C6^" # color
+
 printf " "
-free -h | awk '/Mem/{print $3}'
+printf "$(free -h | awk '/Mem/{print $3}')"
+
+printf "^d^" # reset colors

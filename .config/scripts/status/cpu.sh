@@ -6,6 +6,8 @@ load_avg="$(cut -d' ' -f1 /proc/loadavg)"
 freq_avg="$(cat /proc/cpuinfo | grep 'cpu MHz' | awk '{ total += $4; count++ } END { print total/count }')"
 freq_avg="$(printf %0.f $freq_avg)"
 
+printf "^C6^" # color
+
 if [ $freq_avg -gt 2000 ]; then
   printf "󰓅"
 elif [ $freq_avg -gt 1000 ]; then
@@ -15,3 +17,4 @@ else
 fi
 
 printf " %s %s@%sMHz" $temp_avg $load_avg $freq_avg
+printf "^d^" # reset colors

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+printf "^C8^" # color
+
 volume="$(pactl get-sink-volume @DEFAULT_SINK@ | awk '/Volume:/{print $5}')"
 volume=${volume::-1}
 
@@ -19,4 +21,5 @@ else
 fi
 
 printf " %d%%" $volume
+printf "^d^" # reset colors
 #kill -n 35 $(pidof dwmblocks)

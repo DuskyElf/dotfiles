@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+printf "^C8^" # color
+
 brightness="$(brightnessctl | grep 'Current brightness' | awk '{print $4}')"
 brightness=${brightness:1:-2} # (11%) -> 11
 
@@ -15,3 +17,4 @@ else
 fi
 
 printf " %d%%" $brightness
+printf "^d^" # reset colors

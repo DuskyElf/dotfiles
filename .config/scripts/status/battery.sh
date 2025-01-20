@@ -4,6 +4,8 @@ set -euo pipefail
 HEALTHY_LIMIT=80
 BATTERY="/sys/class/power_supply/BAT0"
 
+printf "^C15^" # color
+
 capacity="$(cat "$BATTERY/capacity" 2>&1)"
 case "$(cat "$BATTERY/status" 2>&1)" in
   "Not charging")
@@ -29,7 +31,7 @@ case "$(cat "$BATTERY/status" 2>&1)" in
     elif [ "$capacity" -gt 20 ]; then
       printf "󰁻"
     else
-      printf "󰂎!"
+      printf "^b#ff0000^󰂎!"
     fi
     ;;
   Charging)
@@ -57,3 +59,4 @@ case "$(cat "$BATTERY/status" 2>&1)" in
 esac
 
 printf "$capacity%%"
+printf "^d^" # reset colors
