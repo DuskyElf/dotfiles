@@ -1,4 +1,4 @@
-theme = "github_dark"
+theme = "iroaseta"
 
 [editor]
 line-number = "relative"
@@ -42,7 +42,7 @@ tabpad = "·"
 
 [editor.indent-guides]
 render = true
-character = '▏'
+character = '|'
 
 [editor.gutters]
 layout = ["diff", "diagnostics", "line-numbers", "spacer"]
