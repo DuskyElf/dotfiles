@@ -7,10 +7,12 @@ BRIGHTNESS_SIG=36
 case $1 in
 	brightness-up)
 	  brightnessctl set 1%+
+	  brightnessctl --device=asus_screenpad set 1%+
 	  kill -n "$BRIGHTNESS_SIG" $(pidof dwmblocks)
 	;;
 	brightness-down)
 	  brightnessctl set 1%-
+	  brightnessctl --device=asus_screenpad set 1%-
 	  kill -n "$BRIGHTNESS_SIG" $(pidof dwmblocks)
 	;;
 
