@@ -12,10 +12,14 @@ while true; do
   setxkbmap -option caps:escape
 
   dwmblocks &
-  nixGL picom &
+  pipewire &
+  picom &
+  dunst &
   dwm
 
   # Cleanup
   pkill dwmblocks
+  pkill pipewire
   pkill picom
+  pkill dunst
 done
