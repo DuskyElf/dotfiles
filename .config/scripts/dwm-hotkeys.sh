@@ -7,12 +7,20 @@ BRIGHTNESS_SIG=36
 case $1 in
 	brightness-up)
 	  brightnessctl set 1%+
-	  brightnessctl --device=asus_screenpad set 1%+
+
+	  screen_pad=$(cat /sys/class/backlight/asus_screenpad/bl_power)
+    if [[ "$screen_pad" == "0" ]]; then
+			brightnessctl --device=asus_screenpad set "$(($(brightnessctl get) * 100 / $(brightnessctl max) + 1))%"
+    fi
 	  kill -n "$BRIGHTNESS_SIG" $(pidof dwmblocks)
 	;;
 	brightness-down)
 	  brightnessctl set 1%-
-	  brightnessctl --device=asus_screenpad set 1%-
+
+	  screen_pad=$(cat /sys/class/backlight/asus_screenpad/bl_power)
+    if [[ "$screen_pad" == "0" ]]; then
+			brightnessctl --device=asus_screenpad set "$(($(brightnessctl get) * 100 / $(brightnessctl max) + 1))%"
+    fi
 	  kill -n "$BRIGHTNESS_SIG" $(pidof dwmblocks)
 	;;
 
@@ -30,6 +38,6 @@ case $1 in
 	;;
 
 	screenshot)
-	  maim -s | xclip -selection clipboard -t image/png -i
+		flameshot gui
 	;;
 esac
