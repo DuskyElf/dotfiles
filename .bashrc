@@ -1,6 +1,7 @@
 # Settings
 export VISUAL=hx
 export EDITOR="$VISUAL"
+set -o vi
 
 # Aliases
 alias ls='ls --color'
