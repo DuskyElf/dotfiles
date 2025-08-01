@@ -20,3 +20,6 @@ export PATH="$HOME/.local/VSCode-linux-x64/bin:$PATH"
 
 # Prompt
 eval "$(starship init bash)"
+
+# opencode
+export PATH=/home/duskyelf/.opencode/bin:$PATH
