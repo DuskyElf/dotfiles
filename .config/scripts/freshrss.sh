@@ -1,5 +1,8 @@
+set -xu
+
 docker pull freshrss/freshrss
 
+docker stop freshrss
 docker rm freshrss
 
 docker run -d --restart unless-stopped --log-opt max-size=10m \
