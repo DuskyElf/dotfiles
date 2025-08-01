@@ -15,6 +15,7 @@ while true; do
   pipewire &
   picom &
   dunst &
+  brightnessctl set 15%
   dwm
 
   # Cleanup
